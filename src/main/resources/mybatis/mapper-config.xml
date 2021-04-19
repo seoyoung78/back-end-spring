@@ -3,6 +3,7 @@
 <configuration>
    <typeAliases>
       <typeAlias alias="board" type="com.mycompany.webapp.dto.Board"/>
+      <typeAlias alias="product" type="com.mycompany.webapp.dto.Product" />
       <typeAlias alias="pager" type="com.mycompany.webapp.dto.Pager" />
    </typeAliases>
 </configuration>

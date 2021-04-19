@@ -69,6 +69,7 @@ public class BoardsController {
           }
        }
        boardsService.insert(board);
+       board.setBattach(null);
        return board;
     }
     
@@ -119,6 +120,7 @@ public class BoardsController {
           }
        }
        boardsService.update(board);
+       board.setBattach(null);
        return board;
     }
     

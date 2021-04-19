@@ -11,7 +11,7 @@ public class Board {
    private String bwriter;
    private Date bdate;
    private int bhitcount;
-   private MultipartFile battach;
+   private MultipartFile battach;	//JSON으로 표현x
    private String battachoname;
    private String battachsname;
    private String battachtype;

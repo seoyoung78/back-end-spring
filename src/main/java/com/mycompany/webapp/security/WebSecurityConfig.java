@@ -59,6 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.expressionHandler(securityExpressionHandler())
 			
 			//요청 경로 권한 설정
+			//.antMatchers(HttpMethod.POST, "/boards").hasAuthority("ROLE_USER")
 			.antMatchers(HttpMethod.POST, "/boards").hasAnyRole("USER")
 			.antMatchers(HttpMethod.PUT, "/boards").hasAnyRole("USER")
 			.antMatchers(HttpMethod.DELETE, "/boards/*").hasAnyRole("USER")

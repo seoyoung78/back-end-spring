@@ -62,7 +62,7 @@ public class BoardsController {
           board.setBattachsname(new Date().getTime() + "-" + mf.getOriginalFilename());
           board.setBattachtype(mf.getContentType());
           try {
-             File file = new File("D:/서영/Myproject/uploadfiles/" + board.getBattachsname());
+             File file = new File("D:/Team6Projects/uploadfiles/" + board.getBattachsname());
              mf.transferTo(file);
           } catch (Exception e) {
              e.printStackTrace();
@@ -88,7 +88,7 @@ public class BoardsController {
           if(battachoname == null) return;
           battachoname = new String(battachoname.getBytes("UTF-8"),"ISO-8859-1");	//다시 인코딩
           String battachsname = board.getBattachsname();      
-          String battachspath = "D:/서영/Myproject/uploadfiles/" + battachsname;
+          String battachspath = "D:/Team6Projects/uploadfiles/" + battachsname;
           String battachtype = board.getBattachtype();
     
           response.setHeader("Content-Disposition", "attachment; filename=\""+battachoname+"\";");
@@ -113,7 +113,7 @@ public class BoardsController {
           board.setBattachsname(new Date().getTime() + "-" + mf.getOriginalFilename());
           board.setBattachtype(mf.getContentType());
           try {
-             File file = new File("D:/서영/Myproject/uploadfiles/" + board.getBattachsname());
+             File file = new File("D:/Team6Projects/uploadfiles/" + board.getBattachsname());
              mf.transferTo(file);
           } catch (Exception e) {
              e.printStackTrace();

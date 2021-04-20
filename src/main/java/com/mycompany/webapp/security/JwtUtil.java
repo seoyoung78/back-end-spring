@@ -61,7 +61,7 @@ public class JwtUtil {
 			parser.setSigningKey(secretKey.getBytes("UTF-8"));
 			Jws<Claims> jws =  parser.parseClaimsJws(token);
 			Claims claims = jws.getBody();
-			validate = claims.getExpiration().after(new Date());	//설정한 유호기간 만료 시간 여부
+			validate = claims.getExpiration().after(new Date());	//Date 기준 설정한 유호기간 만료 여부 - after : 현재시간보다 미래의 시간인가(false : 시간이 이미 지남)
 			/*if(validate) {
 				long remainMillSecs = claims.getExpiration().getTime() - new Date().getTime();
 				logger.info("" + remainMillSecs / 1000 + "초 남았습니다");
@@ -74,7 +74,7 @@ public class JwtUtil {
 	}
 	
 	//테스트
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		//토큰 생성
 		String jwt = createToken("user1");
 		System.out.println(jwt);
@@ -88,5 +88,5 @@ public class JwtUtil {
 			String uid = getUid(jwt);
 			logger.info(uid);
 		}
-	}
+	}*/
 }

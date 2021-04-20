@@ -44,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		//서버 세션 비활성화
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		
-		//사이트가 요청 위조 방지 비활성화
+		//사이트가 요청 위조 방지 비활성화 - POST 방식에서 form 형식 csrf 들어가는 것
 		http.csrf().disable();
 		
 		//CORS 설정(다른 도메인에서 요청을 허가)
@@ -82,14 +82,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 	//사용자의 상태 정보를 가져오는 서비스 객체를 관리 객체로 등록
-	@Bean	//메소드 자동 실행 됨
+	//JwtAuthenticationFilter에서 사용
+	@Bean	//메소드 자동 실행 해서 리턴 되는 값을 관리 객체로 등록, 주입 받을 수 있도록 해줌
 	@Override
 	public UserDetailsService userDetailsServiceBean() throws Exception {
 		return super.userDetailsServiceBean();
 	}
 	
-	//인증된  정보를 관리하는 객체를 Spring 관리 객체로 등록
-	//JwtAuthenticationFilter에서 사용
+	//인증된 정보를 관리하는 객체를 Spring 관리 객체로 등록 - 로그인 작업하면서 다른 메소드에서 uid를 얻고 싶을 경우 사용
+	//AuthController에서 사용
 	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
